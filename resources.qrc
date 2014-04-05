@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/doge">
+        <file>doge100.gif</file>
+    </qresource>
+</RCC>

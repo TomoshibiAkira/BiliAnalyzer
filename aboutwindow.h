@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-const QString VERSION_NUMBER("0.1");
+const QString VERSION_NUMBER("0.12");
 
 namespace Ui {
 class aboutWindow;

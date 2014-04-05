@@ -6,7 +6,8 @@
 #include <QDomNode>
 #include <QStringList>
 
-const QString PLAYER_STR("https://secure.bilibili.tv/secure,cid=");
+const QString PLAYER_STR("cid=");
+const QString PLAYER_STR2("\"cid\":\"");
 const QString INTERFACE_URL("http://interface.bilibili.cn/playurl?cid=");
 const QString NAME_STR("<h2 title=\"");
 
@@ -196,15 +197,18 @@ void VideoInfo::httpFinished()
 
 bool VideoInfo::parseHTML()
 {
-    int pos = buffer.data().indexOf(PLAYER_STR);
-    if (pos == -1)
+    int pos;
+    int p1 = buffer.data().indexOf(PLAYER_STR);
+    int p2 = buffer.data().indexOf(PLAYER_STR2);
+    if (p1 == -1 && p2 == -1)
     {
         status = URL_PARSED_VIDEO_NOT_FOUND;
         return false;
     }
     else
     {
-        pos += PLAYER_STR.length();
+        if (p1 == -1) pos = p2 + PLAYER_STR2.length();
+        else pos = p1 + PLAYER_STR.length();
         QChar t = buffer.data().at(pos);
         while (t.isDigit())
         {

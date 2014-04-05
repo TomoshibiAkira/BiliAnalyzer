@@ -179,3 +179,4 @@ plugin_commonU.def
 release/qrc_resources.cpp
 ui_mainframe.h
 ui_aboutwindow.h
+debug/qrc_resources.cpp

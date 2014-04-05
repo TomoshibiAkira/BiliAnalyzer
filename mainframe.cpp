@@ -9,7 +9,7 @@
 #include <QMimeData>
 #include <QDataStream>
 
-const QRegExp URL_REGEX = QRegExp("(http://)?(www)?\\.bilibili\\.tv/+video/+av\\d+/?");
+const QRegExp URL_REGEX = QRegExp("(http://)?(www\\.)?bilibili\\.tv/+video/+av\\d+/?");
 const QRegExpValidator URL_PARSE(URL_REGEX, 0);
 
 MainFrame::MainFrame(QWidget *parent) :

@@ -175,3 +175,7 @@ plugin_commonU.def
 *.orig
 *.rej
 
+*.exe
+release/qrc_resources.cpp
+ui_mainframe.h
+ui_aboutwindow.h

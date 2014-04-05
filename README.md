@@ -10,9 +10,9 @@ Doge is a Internet meme.
 Using:
 ============
 Input something like "avXXXXXXX", or a full URL which you want to parse.
-(e.g. http://bilibili.tv/video/av666/)
+(e.g. http://www.bilibili.tv/video/av666/)
 
-"http://" is actually not necessary :)
+"http://" and "www." are not necessary actually :)
 
 
 Changelog:

@@ -132,7 +132,8 @@ void MainFrame::copyAll()
 {
     cdata.clear();
     foreach (VideoInfo* video, videolist)
-        cdata += video->getRURL().toString() + '\n';
+        if (video->getStatus() == URL_PARSED_OK)
+            cdata += video->getRURL().toString() + '\n';
     clipboard->clear();
     clipboard->setText(cdata);
 }
@@ -143,8 +144,9 @@ void MainFrame::copy()
     QModelIndexList rows = selection->selectedRows();
     foreach (QModelIndex row, rows)
     {
-        int p = row.row();
-        cdata += videolist.at(p)->getRURL().toString() + '\n';
+        VideoInfo* video = videolist.at(row.row());
+        if (video->getStatus() == URL_PARSED_OK)
+            cdata += video->getRURL().toString() + '\n';
     }
     clipboard->clear();
     clipboard->setText(cdata);
